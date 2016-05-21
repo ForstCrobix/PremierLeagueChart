@@ -38,7 +38,7 @@
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">Rob is the commit master!</div>
+                <div class="title">No, Emelie is!</div>
             </div>
         </div>
     </body>
