@@ -1,0 +1,22 @@
+.section {
+    font-size: 6em;
+    text-align: center;
+}
+
+.fixed {
+    position: fixed;
+}
+
+#sign-in-button {
+    position:fixed;
+    height: 50px;
+    width: 10%;
+    background-color: #00a4ff;
+    color: white;
+    border: none;
+    z-index:9;
+    text-align:center;
+    border-radius: 25px;
+    margin-left:89%;
+    margin-top:10px;
+}
