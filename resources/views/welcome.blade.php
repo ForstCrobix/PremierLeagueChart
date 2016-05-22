@@ -1,45 +1,36 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Laravel</title>
 
-        <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
+<head>
+  <link rel="stylesheet" type="text/css" href="Full_Page/jquery.fullPage.css" />
+   <script src="components/jquery.min.js"></script>
+   <script type="text/javascript" src="Full_Page/jquery.fullPage.js"></script>
 
-        <style>
-            html, body {
-                height: 100%;
-            }
+   <script type="text/javascript">
+   $(document).ready(function() {
+           $('#fullpage').fullpage({
+               sectionsColor: ['#ff9933', '#0099ff', '#00cc66'],
+           });
+       });
+    </script>
 
-            body {
-                margin: 0;
-                padding: 0;
-                width: 100%;
-                display: table;
-                font-weight: 100;
-                font-family: 'Lato';
-            }
+    <style>
+         .section{
+             font-size: 6em;
+             text-align: center;
+         }
+     </style>
+</head>
 
-            .container {
-                text-align: center;
-                display: table-cell;
-                vertical-align: middle;
-            }
-
-            .content {
-                text-align: center;
-                display: inline-block;
-            }
-
-            .title {
-                font-size: 96px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <div class="content">
-                <div class="title">No, Emelie is!</div>
-            </div>
+<body>
+    <div id="fullpage">
+        <div class="section">Rob...</div>
+        <div class="section">
+            <div class="slide">1</div>
+            <div class="slide">2</div>
         </div>
-    </body>
+
+        <div class="section">...COOL!!</div>
+    </div>
+</body>
 </html>
