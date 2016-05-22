@@ -7,6 +7,10 @@
     position: fixed;
 }
 
+body, button {
+    font-family: 'Josefin Slab', serif;
+}
+
 #sign-in-button {
     position:fixed;
     height: 50px;
@@ -19,6 +23,7 @@
     border-radius: 25px;
     margin-left:89%;
     margin-top:10px;
+    font-size: large;
 }
 
 #menu{
