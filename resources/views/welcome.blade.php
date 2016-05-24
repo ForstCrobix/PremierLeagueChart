@@ -15,8 +15,7 @@
                menu: '#menu',
                anchors: ['firstPage', 'secondPage', 'thirdPage'],
                navigation: true,
-               navigationPosition: 'right',
-               navigationTooltips: ['Dashboard', 'Upcoming', 'Table']
+               navigationPosition: 'right'
            });
        });
     </script>
@@ -29,8 +28,15 @@
         <li data-menuanchor="thirdPage"><a href="#thirdPage">Chart</a></li>
     </ul>
     <button id="sign-in-button" type="button">Sign in</button>
+
+
     <div id="fullpage">
-        <div class="section">Rob...</div>
+        <div class="section">
+          <div class="headshots">
+          <img src="images/headshots/rob.jpg" class="circular-image" alt="Picture of Rob">
+          <img src="images/headshots/emelie.jpg" class="circular-image" alt="Picture of Emelie">
+        </div>
+        </div>
         <div class="section">...is...</div>
         <div class="section">...COOL!!</div>
     </div>

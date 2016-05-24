@@ -7,6 +7,25 @@
     position: fixed;
 }
 
+.circular-image {
+    border-radius: 50%;
+    height: auto;
+    width: 20%;
+    min-width: 280px;
+}
+
+.headshots {
+    position: relative;
+    top: -10%;
+}
+
+@media (max-width: 600px) {
+  .headshots {
+      position: relative;
+      top: 60px !important;
+  }
+}
+
 body, button {
     font-family: 'Josefin Slab', serif;
 }
@@ -43,31 +62,19 @@ body, button {
     margin:10px;
     margin-right: 0px !important;
     color: #000;
-    background:#fff;
-    background: rgba(255,255,255, 0.5);
-    -webkit-border-radius: 10px;
-    border-radius: 10px;
-
 }
 #menu li.active{
-    background:#666;
-    background: rgba(0,0,0, 0.5);
-    color: #fff;
+      border-bottom: groove medium white;
 }
-#menu li a{
-    text-decoration:none;
-    color: #000;
-}
-#menu li.active a:hover{
-    color: #000;
-}
-#menu li:hover{
-    background: rgba(255,255,255, 0.8);
+#menu li a:hover{
+    color: white !important;
 }
 #menu li a,
 #menu li.active a{
+  text-decoration:none;
     padding: 9px 18px;
     display:block;
+    color: black;
 }
 #menu li.active a{
     color: #fff;
