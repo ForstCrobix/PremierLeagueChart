@@ -16,10 +16,10 @@
 
 .headshots {
     position: relative;
-    top: -10%;
+    top: -5%;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 650px) {
   .headshots {
       position: relative;
       top: 60px !important;
@@ -29,6 +29,14 @@
 body, button {
     font-family: 'Josefin Slab', serif;
     text-align:center;
+}
+
+#rob_img {
+  border:10px solid #0099ff;
+}
+
+#em_img {
+  border:10px solid #00cc66;
 }
 
 #sign-in-button {
@@ -41,7 +49,7 @@ body, button {
     z-index:9;
     text-align:center;
     border-radius: 25px;
-    margin-left:89%;
+    margin-left:39%;
     margin-top:10px;
     font-size: large;
 }
@@ -82,15 +90,32 @@ body, button {
     color: #fff;
 }
 
-#progress {
+#shared_bar_bg_features {
   position:relative;
-  width:250px;
+  width:300px;
   height:20px;
-  border:1px solid red;
   margin: 0 auto;
+  margin-bottom: 10px;
+  border-radius: 25px;
 }
-.progress-bar {
-    background:blue;
-    height:20px;
-    width:0%;
+
+#shared_bar_features {
+  height:20px;
+  width:0%;
+  border-radius: 25px;
+}
+.progress_e {
+  background: white;
+}
+.progress-bar_e {
+    background:#00cc66;
+}
+.progress_r {
+  background: white;
+}
+.progress-bar_r {
+  background:#0099ff;
+  /*  makes bar go from left to right
+      display: block;
+      float: right; */
 }

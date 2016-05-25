@@ -10,15 +10,24 @@ class WelcomeController extends Controller
 {
   public function index()
   {
-      $percent = $this->getPercent();
-      return view('welcome')->with('percent', $percent);
+      $emelieScore = $this->getEmelieScore();
+      $robScore = $this->getRobScore();
+
+      $scores = array(
+        'em' => $emelieScore,
+        'rob' => $robScore
+      );
+
+      return view('welcome')->with('scores', $scores);
   }
 
-  private function getPercent()
+  private function getEmelieScore()
   {
-    $total = 5000;
-    $current = 1000;
-    $percent = round(($current/$total) * 100, 1);
-    return $percent;
+    return 55;
+  }
+
+  private function getRobScore()
+  {
+    return 89;
   }
 }
