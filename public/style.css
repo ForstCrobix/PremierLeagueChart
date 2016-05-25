@@ -28,6 +28,7 @@
 
 body, button {
     font-family: 'Josefin Slab', serif;
+    text-align:center;
 }
 
 #sign-in-button {
@@ -47,6 +48,7 @@ body, button {
 
 #menu{
     background-color: transparent;
+    text-align: left !important;
     position:fixed;
     top:0;
     left:0;
@@ -78,4 +80,17 @@ body, button {
 }
 #menu li.active a{
     color: #fff;
+}
+
+#progress {
+  position:relative;
+  width:250px;
+  height:20px;
+  border:1px solid red;
+  margin: 0 auto;
+}
+.progress-bar {
+    background:blue;
+    height:20px;
+    width:0%;
 }

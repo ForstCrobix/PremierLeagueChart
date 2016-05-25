@@ -7,18 +7,7 @@
     <link rel="stylesheet" type="text/css" href="style.css" />
     <script src="components/jquery.min.js"></script>
     <script type="text/javascript" src="Full_Page/jquery.fullPage.js"></script>
-
-   <script type="text/javascript">
-   $(document).ready(function() {
-           $('#fullpage').fullpage({
-               sectionsColor: ['#ff9933', '#0099ff', '#00cc66'],
-               menu: '#menu',
-               anchors: ['firstPage', 'secondPage', 'thirdPage'],
-               navigation: true,
-               navigationPosition: 'right'
-           });
-       });
-    </script>
+    <script type="text/javascript" src="javascript.js"></script>
 </head>
 
 <body>
@@ -29,17 +18,22 @@
     </ul>
     <button id="sign-in-button" type="button">Sign in</button>
 
-
     <div id="fullpage">
         <div class="section">
           <div class="headshots">
-          <img src="images/headshots/rob.jpg" class="circular-image" alt="Picture of Rob">
-          <img src="images/headshots/emelie.jpg" class="circular-image" alt="Picture of Emelie">
-        </div>
+            <img src="images/headshots/rob.jpg" class="circular-image" alt="Picture of Rob">
+            <img src="images/headshots/emelie.jpg" class="circular-image" alt="Picture of Emelie">
+          </div>
+          <div id="progress">
+            <div class="progress-bar"></div>
+          </div>
         </div>
         <div class="section">...is...</div>
         <div class="section">...COOL!!</div>
     </div>
+
+
+
 </body>
 
 </html>
