@@ -26,17 +26,48 @@
   }
 }
 
+.vs-section {
+    font-size: 35pt;
+    margin-top: -8%;
+    padding-bottom: 4%;
+    width: 100%;
+    text-align: center;
+}
+
+.progress-bar-e {
+    background: #00cc66;
+}
+
+.progress-bar-r {
+  background:#0099ff;
+  /*  makes bar go from left to right
+      display: block;
+      float: right; */
+}
+
 body, button {
     font-family: 'Josefin Slab', serif;
     text-align:center;
 }
 
-#rob_img {
-  border:10px solid #0099ff;
+#rob-img {
+  border:10px solid  rgba(0, 153, 255, 1);
+  background: transparent url('images/headshots/rob.jpg') center top no-repeat;
 }
 
-#em_img {
+#rob-img:hover {
+    border:10px solid  rgba(0, 153, 255, 1);
+    background: url('images/headshots/rob_hover.png');
+}
+
+#em-img {
   border:10px solid #00cc66;
+  background: transparent url('images/headshots/emelie.jpg') center top no-repeat;
+}
+
+#em-img {
+  border:10px solid #00cc66;
+  background: url('images/headshots/emelie_hover.png');
 }
 
 #sign-in-button {
@@ -90,32 +121,18 @@ body, button {
     color: #fff;
 }
 
-#shared_bar_bg_features {
+#shared-bar-bg-features {
   position:relative;
   width:300px;
   height:20px;
   margin: 0 auto;
   margin-bottom: 10px;
   border-radius: 25px;
+  background: rgba(255, 255, 255, 0.4);
 }
 
-#shared_bar_features {
+#shared-bar-features {
   height:20px;
   width:0%;
   border-radius: 25px;
-}
-.progress_e {
-  background: white;
-}
-.progress-bar_e {
-    background:#00cc66;
-}
-.progress_r {
-  background: white;
-}
-.progress-bar_r {
-  background:#0099ff;
-  /*  makes bar go from left to right
-      display: block;
-      float: right; */
 }

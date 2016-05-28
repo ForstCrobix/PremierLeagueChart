@@ -21,13 +21,28 @@ class WelcomeController extends Controller
       return view('welcome')->with('scores', $scores);
   }
 
+  public function getScores()
+  {
+    $emelieScore = $this->getEmelieScore();
+    $robScore = $this->getRobScore();
+
+    $scores = array(
+      'em' => $emelieScore,
+      'rob' => $robScore
+    );
+
+    return $scores;
+  }
+
   private function getEmelieScore()
   {
+    // adding more here
     return 55;
   }
 
   private function getRobScore()
   {
-    return 89;
+    // adding more here
+    return 87;
   }
 }

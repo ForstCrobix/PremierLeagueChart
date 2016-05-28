@@ -9,33 +9,31 @@ $(document).ready(function() {
      });
  });
 
-// CAN WE MAKE THIS ONE METHOD SOME HOW??
-// Controls the updating of the progress bar (top)
+// Controls the updating of the progress bars
 $(document).ready(function() {
-    var progression = 0,
-    progress = setInterval(function()
-    {
-       $('.progress_e .progress-bar_e').css({'width':progression+'%'});
-       if(progression == emelieScore) {
-          clearInterval();
-       }
-       else {
-          progression += 1;
-       }
-   }, 20);
+    $.ajax({
+      type: "post",
+      url: "./getScores",
+      success: function(response){
+        updateScores( response['em'], response['rob']);
+      }
+    });
  });
 
- // Controls the updating of the progress bar (bottom)
- $(document).ready(function() {
-     var progression = 0,
-     progress = setInterval(function()
-     {
-        $('.progress_r .progress-bar_r').css({'width':progression+'%'});
-        if(progression == robScore) {
-           clearInterval();
-        }
-        else {
-           progression += 1;
-        }
-    }, 20);
-  });
+function updateScores(emelieScore, robScore) {
+  var progression = 0,
+  progress = setInterval(function()
+  {
+     if(progression <= emelieScore) {
+       $('.progress-e .progress-bar-e').css({'width':progression+'%'});
+     }
+     if(progression <= robScore) {
+          $('.progress-r .progress-bar-r').css({'width':progression+'%'});
+     }
+
+     progression += 1;
+     if (progression > emelieScore && progression > robScore) {
+       clearInterval();
+     }
+ }, 20);
+}
