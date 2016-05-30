@@ -20,6 +20,10 @@ $(document).ready(function() {
     });
  });
 
+ $(document).ready(function() {
+   preload("images/headshots/rob_hover.png", "images/headshots/emelie_hover.png");
+ });
+
 function updateScores(emelieScore, robScore) {
   var progression = 0,
   progress = setInterval(function()
@@ -37,3 +41,12 @@ function updateScores(emelieScore, robScore) {
      }
  }, 20);
 }
+
+// preload images
+var imgs = new Array()
+function preload() {
+				for (i = 0; i < preload.arguments.length; i++) {
+					imgs[i] = new Image()
+					imgs[i].src = preload.arguments[i]
+				}
+			}

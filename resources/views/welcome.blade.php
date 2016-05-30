@@ -5,8 +5,8 @@
     <link href='https://fonts.googleapis.com/css?family=Josefin+Slab' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="Full_Page/jquery.fullPage.css" />
     <link rel="stylesheet" type="text/css" href="style.css" />
-    <link rel="prefetch" href="images/headshots/rob_hover.png" />
-    <link rel="prefetch" href="images/headshots/emelie_hover.png" />
+  <!--  <link rel="preload" href="images/headshots/rob_hover.png" />
+    <link rel="preload" href="images/headshots/emelie_hover.png" />-->
     <script src="components/jquery.min.js"></script>
     <script type="text/javascript" src="Full_Page/jquery.fullPage.js"></script>
     <script type="text/javascript" src="javascript.js"></script>
@@ -23,9 +23,29 @@
     <div id="fullpage">
         <div class="section">
           <div class="headshots">
-            <img src="images/headshots/rob.jpg" onmouseout="this.src='images/headshots/rob.jpg'" onmouseover="this.src='images/headshots/rob_hover.png'" class="circular-image" alt="Picture of Rob" id="rob-img">
-            <img src="images/headshots/emelie.jpg" onmouseout="this.src='images/headshots/emelie.jpg'" onmouseover="this.src='images/headshots/emelie_hover.png'"class="circular-image" alt="Picture of Emelie" id="em-img">
-            <div class="circular-image" style="background-image: url('images/headshots/rob.jpg')"></div>
+
+            <div class="image-r">
+              <div class="hovereffect-r" id="r">
+                <img class="img-responsive" src="images/headshots/rob.jpg" alt="">
+                <div class="overlay">
+                  <h2>Rob</h2>
+				          <p> #45 </p>
+                </div>
+              </div>
+            </div>
+            <div class="image-e">
+              <div class="hovereffect-e" id="e">
+                <img class="img-responsive" src="images/headshots/emelie.jpg" alt="">
+                <div class="overlay">
+                  <h2>Emelie</h2>
+                  <p> #12 </p>
+                </div>
+              </div>
+            </div>
+
+
+          <!--  <img src="images/headshots/rob.jpg" onmouseout="this.src='images/headshots/rob.jpg'" onmouseover="this.src='images/headshots/rob_hover.png'" class="circular-image" id="rob-img">
+            <img src="images/headshots/emelie.jpg" onmouseout="this.src='images/headshots/emelie.jpg'" onmouseover="this.src='images/headshots/emelie_hover.png'"class="circular-image" id="em-img">-->
           </div>
           <div class="vs-section">VS</div>
           <div class="progress-e" id="shared-bar-bg-features">

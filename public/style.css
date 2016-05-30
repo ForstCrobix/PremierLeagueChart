@@ -15,8 +15,11 @@
 }
 
 .headshots {
-    position: relative;
-    top: -5%;
+  position: absolute;
+  top: 12%;
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
 @media (max-width: 650px) {
@@ -28,7 +31,7 @@
 
 .vs-section {
     font-size: 35pt;
-    margin-top: -8%;
+    margin-top: 22%;
     padding-bottom: 4%;
     width: 100%;
     text-align: center;
@@ -40,9 +43,6 @@
 
 .progress-bar-r {
   background:#0099ff;
-  /*  makes bar go from left to right
-      display: block;
-      float: right; */
 }
 
 body, button {
@@ -96,6 +96,7 @@ body, button {
     width: 100%;
     padding: 0;
     margin:0;
+    font-size: 18px;
 }
 
 #menu li {
@@ -135,4 +136,124 @@ body, button {
   height:20px;
   width:0%;
   border-radius: 25px;
+}
+
+#r {
+  background: #0099ff;
+  border:10px solid  rgba(0, 153, 255, 1);
+}
+
+#e {
+  background: #00cc66;
+  border:10px solid #00cc66;
+}
+
+.image-r {
+  height: auto;
+  width: 20%;
+  min-width: 280px;
+  margin-right: 2.5%
+}
+
+.image-e {
+  height: auto;
+  width: 20%;
+  min-width: 280px;
+  margin-left: 2.5%;
+}
+
+.hovereffect-r,
+.hovereffect-e {
+  width: 100%;
+  height: 90%;
+  float: left;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  border-radius: 50%;
+}
+
+.hovereffect-r .overlay,
+.hovereffect-e .overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+}
+
+.hovereffect-r img,
+.hovereffect-e img  {
+  display: block;
+  position: relative;
+  width: 100%;
+}
+
+.hovereffect-r:hover img,
+.hovereffect-e:hover img {
+  opacity: 0.7;
+  filter: alpha(opacity=70);
+  -webkit-transform: translate3d(0,0,0);
+  transform: translate3d(0,0,0);
+}
+
+.hovereffect-r h2, .hovereffect-e h2 {
+  color: #fff;
+  text-align: center;
+  position: relative;
+  font-size: 30px;
+  overflow: hidden;
+  padding: 0.5em 0;
+  background-color: transparent;
+}
+
+.hovereffect-r h2:after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #fff;
+  content: '';
+  -webkit-transition: -webkit-transform 1s;
+  transition: transform 1s;
+  -webkit-transform: translate3d(-100%,0,0);
+  transform: translate3d(-100%,0,0);
+}
+
+.hovereffect-e h2:after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #fff;
+  content: '';
+  -webkit-transition: -webkit-transform 1s;
+  transition: transform 1s;
+  -webkit-transform: translate3d(100%,0,0);
+  transform: translate3d(100%,0,0);
+}
+
+.hovereffect-r:hover h2:after,
+.hovereffect-e:hover h2:after {
+  -webkit-transform: translate3d(0,0,0);
+  transform: translate3d(0,0,0);
+}
+
+ .hovereffect-r p,
+ .hovereffect-e p  {
+  color: #FFF;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  -webkit-transition: opacity 0.6s;
+  transition: opacity 0.6s;
+  display: inline;
+}
+
+.hovereffect-r:hover p,
+.hovereffect-e:hover p {
+  opacity: 1;
+  filter: alpha(opacity=100);
 }
