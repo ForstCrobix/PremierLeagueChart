@@ -124,8 +124,8 @@ body, button {
 
 #shared-bar-bg-features {
   position:relative;
-  width:300px;
-  height:20px;
+  width:400px;
+  height:30px;
   margin: 0 auto;
   margin-bottom: 10px;
   border-radius: 25px;
@@ -133,7 +133,7 @@ body, button {
 }
 
 #shared-bar-features {
-  height:20px;
+  height:30px;
   width:0%;
   border-radius: 25px;
 }
@@ -171,6 +171,10 @@ body, button {
   position: relative;
   text-align: center;
   border-radius: 50%;
+  z-index: 1;   /* Fixes overflow:hidden not working with Chrome */
+  /* Fixes overflow:hidden not working with Chrome
+  -webkit-mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC);
+*/
 }
 
 .hovereffect-r .overlay,
