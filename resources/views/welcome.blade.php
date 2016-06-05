@@ -29,7 +29,6 @@
     <div id="fullpage">
         <div class="section">
           <div class="headshots">
-
             <div class="image-r">
               <div class="hovereffect-r" id="r">
                 <img class="img-responsive" src="images/headshots/rob.jpg" alt="">
