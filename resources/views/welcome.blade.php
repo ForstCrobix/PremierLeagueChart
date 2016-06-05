@@ -7,6 +7,8 @@
     <link rel="stylesheet" type="text/css" href="bootstrap/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="bootstrap/bootstrap-theme.min.css" />
     <link rel="stylesheet" type="text/css" href="style.css" />
+  <!--  <link rel="preload" href="images/headshots/rob_hover.png" />
+    <link rel="preload" href="images/headshots/emelie_hover.png" />-->
     <script src="components/jquery.min.js"></script>
     <script src="bootstrap/bootstrap.min.js"></script>
     <script src="bootbox/bootbox.js"></script>
@@ -24,6 +26,46 @@
     <button id="sign-in-button" type="button">Sign in</button>
     @endif
 
+    <div id="fullpage">
+        <div class="section">
+          <div class="headshots">
+
+            <div class="image-r">
+              <div class="hovereffect-r" id="r">
+                <img class="img-responsive" src="images/headshots/rob.jpg" alt="">
+                <div class="overlay">
+                  <h2>Rob</h2>
+				          <p> #45 </p>
+                </div>
+              </div>
+            </div>
+            <div class="image-e">
+              <div class="hovereffect-e" id="e">
+                <img class="img-responsive" src="images/headshots/emelie.jpg" alt="">
+                <div class="overlay">
+                  <h2>Emelie</h2>
+                  <p> #12 </p>
+                </div>
+              </div>
+            </div>
+
+
+          <!--  <img src="images/headshots/rob.jpg" onmouseout="this.src='images/headshots/rob.jpg'" onmouseover="this.src='images/headshots/rob_hover.png'" class="circular-image" id="rob-img">
+            <img src="images/headshots/emelie.jpg" onmouseout="this.src='images/headshots/emelie.jpg'" onmouseover="this.src='images/headshots/emelie_hover.png'"class="circular-image" id="em-img">-->
+          </div>
+          <div class="vs-section">VS</div>
+          <div class="progress-e" id="shared-bar-bg-features">
+            <div class="progress-bar-e" id="shared-bar-features"></div>
+          </div>
+          <div class="progress-r" id="shared-bar-bg-features">
+            <div class="progress-bar-r" id="shared-bar-features"></div>
+          </div>
+        </div>
+        <div class="section">...is...</div>
+        <div class="section">...COOL!!</div>
+    </div>
+
+    <!-- This is the dialog displayed when the 'Sign in' button is pressed. It is hidden by default !-->
     <div id="sign-in-dialog" class="modal fade no-display" tabindex="-1" role="dialog">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -41,13 +83,6 @@
                                     <label class="col-md-4 control-label">Username</label>
                                     <div class="col-md-6">
                                         <input class="form-control" name="email" type="email" value="{{ old('email') }}">
-                                        <span class="help-block no-display">
-                                        <strong>User credentials do not match.</strong>
-                                        {{--@if ($errors->has('email'))
-                                            <span class="help-block">
-                                            <strong>{{ $errors->first('email') }}</strong>
-                                        </span>
-                                        @endif--}}
                                     </div>
                                 </div>
                                 <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
@@ -61,9 +96,12 @@
                                         @endif
                                     </div>
                                 </div>
-                            <div>
-                                Unless you are Emelie, Rob or a hacker you should not be able to sign in.
-                            </div>
+                                    <span class="help-block no-display">
+                                        <strong>User credentials do not match.</strong>
+                                    </span>
+                                <div>
+                                    Unless you are Emelie, Rob or a hacker you should not be able to sign in.
+                                </div>
                         </div>
                     </div>
                 </div>
@@ -75,11 +113,7 @@
         </div>
     </div>
 
-    <div id="fullpage">
-        <div class="section">Rob...</div>
-        <div class="section">...is...</div>
-        <div class="section">...COOL!!</div>
-    </div>
+
 </body>
 
 </html>
