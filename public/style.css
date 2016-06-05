@@ -194,6 +194,7 @@ body, button {
   width: 100%;
 }
 
+
 .hovereffect-r:hover img,
 .hovereffect-e:hover img {
   opacity: 0.7;
@@ -203,11 +204,11 @@ body, button {
 }
 
 .hovereffect-r h2, .hovereffect-e h2 {
-  color: #fff;
+  color: white;
   text-align: center;
   position: relative;
-  font-size: 30px;
   overflow: hidden;
+  font-size: 30px;
   padding: 0.5em 0;
   background-color: transparent;
 }
