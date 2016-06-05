@@ -7,11 +7,16 @@
     position: fixed;
 }
 
+.no-display {
+    display: none;
+}
+
 body, button {
     font-family: 'Josefin Slab', serif;
 }
 
 #sign-in-button {
+    display:block;
     position:fixed;
     height: 50px;
     width: 10%;
@@ -33,7 +38,6 @@ body, button {
     left:0;
     height: 40px;
     z-index: 70;
-    width: 100%;
     padding: 0;
     margin:0;
 }

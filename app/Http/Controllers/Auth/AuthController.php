@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
-use Validator;
+use Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
@@ -29,6 +29,22 @@ class AuthController extends Controller
      * @var string
      */
     protected $redirectTo = '/';
+
+    public function authenticate()
+    {
+        $params = array($_POST);
+
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+
+
+        if (Auth::attempt(['email' => $email, 'password' => $password])) {
+            // Authentication passed...
+            return "OK";
+        }
+
+        return "NOT_OK";
+    }
 
     /**
      * Create a new authentication controller instance.

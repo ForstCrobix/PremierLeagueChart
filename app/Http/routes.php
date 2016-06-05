@@ -17,4 +17,4 @@ Route::get('/', function () {
 
 Route::auth();
 
-Route::get('/home', 'HomeController@index');
+Route::post('/authenticate', 'Auth\AuthController@authenticate');
