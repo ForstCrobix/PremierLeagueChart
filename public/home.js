@@ -106,3 +106,44 @@ function preload() {
         imgs[i].src = preload.arguments[i]
     }
 }
+
+var isClickedA = false;
+var savedTeamA = "null";
+function onClickAway(inputA) {
+  if (inputA == savedTeamA || savedTeamA == "null")
+  {
+    isClickedA = !isClickedA;
+    if (isClickedA)  {
+      inputA.style.opacity = 0.4;
+      savedTeamA = inputA;
+    }
+    else {
+        inputA.style.opacity = 1;
+        savedTeamA = "null";
+      }
+  }
+  else {
+    savedTeamA.style.opacity = 1;
+    inputA.style.opacity = 0.4;
+    savedTeamA = inputA;
+    isClicked = true;
+  }
+}
+
+var isClickedH = false;
+var savedTeamH = "null";
+function onClickHome(inputH) {
+  if (inputH == savedTeamH || savedTeamH == "null")
+  {
+    isClickedH = !isClickedH;
+    if (isClickedH)  {
+      inputH.style.opacity = 0.4;
+      savedTeamH = inputH;
+
+    }
+    else {
+        inputH.style.opacity = 1;
+        savedTeamH = "null";
+      }
+  }
+}

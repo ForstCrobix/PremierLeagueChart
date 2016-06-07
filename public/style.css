@@ -211,6 +211,8 @@ span#a { display: inline; }
 
 table#whole {
   font-size: 15px;
+  font-style: bold;
+  font-family:"Arial";
   width: 80%;
   margin-left: 10%;
   margin-right: 10%;
