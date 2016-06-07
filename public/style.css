@@ -58,6 +58,19 @@ body, button {
     text-align:center;
 }
 
+#tl {
+  background-color:#404040;
+}
+
+#aa {
+/*  border: 2px solid white;*/
+}
+span#a { display: inline; }
+#aa:hover span#a { display: none;}
+#aa span#b { display: none; }
+#aa:hover span#b { display: inline;}
+#aa:hover { background-color: white;}
+
 #rob-img {
   border:10px solid  rgba(0, 153, 255, 1);
   background: transparent url('images/headshots/rob.jpg') center top no-repeat;
@@ -154,6 +167,57 @@ body, button {
 #e {
   background: #00cc66;
   border:10px solid #00cc66;
+}
+
+#top-row, #blank-row,
+.col-1 {
+  background-color: #404040;
+}
+
+.teams-a {
+    width: 3.5vw;
+    height: 3.5vw;
+    background: url(images/badges/Away-Kits.png) no-repeat;
+    background-size: 500% 400%;
+}
+
+.teams-h {
+    width: 2.0vw;
+    height: 2.0vw;
+    background: url(images/badges/Home-Kits.png) no-repeat;
+    background-size: 500% 400%;
+}
+
+.arsenal { background-position: 0 0;}
+.bournemouth { background-position: 25% 0%;}
+.burnley { background-position: 50% 0%;}
+.chelsea { background-position: 75% 0%;}
+.crystal-palace { background-position: 100% 0%;}
+.everton { background-position: 0% 33.33%; }
+.hull { background-position: 25% 33.33%; }
+.leicester { background-position: 50% 33.33%; }
+.liverpool { background-position: 75% 33.33%; }
+.manchester-city { background-position: 100% 33.33%; }
+.manchester-united { background-position: 0% 66.66%; }
+.middlesbrough { background-position: 25% 66.66%; }
+.southampton { background-position: 50% 66.66%; }
+.stoke { background-position: 75% 66.66%; }
+.sunderland { background-position: 100% 66.66%; }
+.swansea { background-position: 0% 100%; }
+.tottenham { background-position: 25% 100%; }
+.watford { background-position: 50% 100%; }
+.west-brom { background-position: 75% 100%; }
+.west-ham { background-position: 100% 100%; }
+
+table#whole {
+  font-size: 15px;
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+  table-layout: fixed;
+  color: #404040;
+  background-color: #00cc66;
+  cursor: default;
 }
 
 .image-r {

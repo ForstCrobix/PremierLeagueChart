@@ -1,11 +1,40 @@
 $(document).ready(function() {
     $('#fullpage').fullpage({
-        sectionsColor: ['#ff9933', '#0099ff', '#00cc66'],
+        sectionsColor: ['#ff9933', '#0099ff', '#404040'], //#00cc66
         menu: '#menu',
         anchors: ['firstPage', 'secondPage', 'thirdPage'],
         navigation: true,
         navigationPosition: 'right',
-        navigationTooltips: ['Dashboard', 'Upcoming', 'Table']
+        navigationTooltips: ['Dashboard', 'Upcoming', 'Table'],
+
+        // removes the navbar buttons when the chart page is directly accessed
+        afterLoad: function(anchorLink, index) {
+          var menu = document.querySelector('#menu');
+          var signIn = document.querySelector('#sign-in-button');
+
+          if(anchorLink == 'thirdPage') {
+            menu.style.visibility = "hidden";
+            signIn.style.visibility = "hidden";
+          }
+          else {
+            menu.style.visibility = "visible";
+            signIn.style.visibility = "visible";
+          }
+        },
+
+        // removes the navbar buttons when the chard is accessed from scrolling
+        onLeave: function(index, nextIndex, direction) {
+          var menu = document.querySelector('#menu');
+          var signIn = document.querySelector('#sign-in-button');
+          if(index == 2 && direction == 'down')  {
+            menu.style.visibility = "hidden";
+            signIn.style.visibility = "hidden";
+          }
+          if(index == 3 && direction == 'up') {
+            menu.style.visibility = "visible";
+            signIn.style.visibility = "visible";
+          }
+        }
     });
 
     // Gets the scores to populate the progress bars
@@ -17,7 +46,7 @@ $(document).ready(function() {
         }
     });
 
-    // Preloads the colored images that are shown when hovering over the headshots
+    // Preloads the colored images that are shown when hovering over the headshots (not used)
     preload("images/headshots/rob_hover.png", "images/headshots/emelie_hover.png");
 
     // Shows the sign in dialog when the user clicks the 'sign in' button
