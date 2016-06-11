@@ -109,9 +109,10 @@ function preload() {
 
 var isClickedA = false;
 var savedTeamA = "null";
-function onClickAway(inputA) {
-  if (inputA == savedTeamA || savedTeamA == "null")
-  {
+var awayID = 100, homeID = 100;
+function onClickAway(inputA, id) {
+  awayID = id;
+  if (inputA == savedTeamA || savedTeamA == "null")  {
     isClickedA = !isClickedA;
     if (isClickedA)  {
       inputA.style.opacity = 0.4;
@@ -120,30 +121,58 @@ function onClickAway(inputA) {
     else {
         inputA.style.opacity = 1;
         savedTeamA = "null";
+        awayID = 100;
       }
   }
   else {
     savedTeamA.style.opacity = 1;
     inputA.style.opacity = 0.4;
     savedTeamA = inputA;
-    isClicked = true;
   }
+  setHighlighted();
 }
 
 var isClickedH = false;
 var savedTeamH = "null";
-function onClickHome(inputH) {
-  if (inputH == savedTeamH || savedTeamH == "null")
-  {
+function onClickHome(inputH, id) {
+  if (inputH == savedTeamH || savedTeamH == "null") {
+    homeID = id;
     isClickedH = !isClickedH;
     if (isClickedH)  {
       inputH.style.opacity = 0.4;
       savedTeamH = inputH;
-
     }
     else {
         inputH.style.opacity = 1;
         savedTeamH = "null";
+        homeID = 100;
       }
+  }
+  else {
+    savedTeamH.style.opacity = 1;
+    inputH.style.opacity = 0.4;
+    savedTeamH = inputH;
+  }
+  setHighlighted();
+}
+
+
+
+function getCell(row, cell) {
+    var tableElement = document.getElementById('whole');
+    return tableElement.rows[row].cells[cell];
+}
+
+var previousCell = 100;
+function setHighlighted() {
+  var cellToHighlight;
+  if (awayID != 100 && homeID != 100)  {
+      cellToHighlight = getCell(homeID+2, awayID+1);
+      previousCell = cellToHighlight;
+      cellToHighlight.style.color = "#FFF";
+  }
+  else {
+    previousCell.style.color = "#404040";
+    previousCell = 100;
   }
 }
