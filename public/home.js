@@ -163,16 +163,16 @@ function getCell(row, cell) {
     return tableElement.rows[row].cells[cell];
 }
 
-var previousCell = 100;
+var previousCell = null;
 function setHighlighted() {
   var cellToHighlight;
+  if(previousCell != null) {
+    previousCell.style.color = "#404040";
+    previousCell = null;
+  }
   if (awayID != 100 && homeID != 100)  {
       cellToHighlight = getCell(homeID+2, awayID+1);
       previousCell = cellToHighlight;
       cellToHighlight.style.color = "#FFF";
-  }
-  else {
-    previousCell.style.color = "#404040";
-    previousCell = 100;
   }
 }
