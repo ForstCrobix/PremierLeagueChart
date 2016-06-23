@@ -135,8 +135,8 @@ function onClickAway(inputA, id) {
 var isClickedH = false;
 var savedTeamH = "null";
 function onClickHome(inputH, id) {
+      homeID = id;
   if (inputH == savedTeamH || savedTeamH == "null") {
-    homeID = id;
     isClickedH = !isClickedH;
     if (isClickedH)  {
       inputH.style.opacity = 0.4;
@@ -163,16 +163,48 @@ function getCell(row, cell) {
     return tableElement.rows[row].cells[cell];
 }
 
-var previousCell = null;
+var previousCell = null, previousRow = null, previousCol = null;
+var maxRow = 21, minRow = 2, maxCol = 20, minCol = 1;
 function setHighlighted() {
   var cellToHighlight;
+
   if(previousCell != null) {
     previousCell.style.color = "#404040";
     previousCell = null;
   }
+  if(previousRow != null) {
+    for(var i = minRow; i <= maxRow; i++) {
+      var highlightedCell = getCell(i, previousRow+1);
+      highlightedCell.style.color ="#404040";
+    }
+    previousRow = null;
+  }
+  if(previousCol != null) {
+    for(var i = minCol; i <= maxCol; i++) {
+      var highlightedCell = getCell(previousCol+2, i);
+      highlightedCell.style.color ="#404040";
+    }
+    previousCol = null;
+  }
+
+  if (awayID != 100) {
+    for(var i = minRow; i <= maxRow; i++) {
+      var highlightedCell = getCell(i, awayID+1);
+      highlightedCell.style.color ="#FFF";
+      previousRow = awayID;
+    }
+  }
+  if (homeID != 100) {
+    for(var i = minCol; i <= maxCol; i++) {
+      var highlightedCell = getCell(homeID+2, i);
+      highlightedCell.style.color ="#FFF";
+      previousCol = homeID;
+    }
+  }
+
   if (awayID != 100 && homeID != 100)  {
       cellToHighlight = getCell(homeID+2, awayID+1);
       previousCell = cellToHighlight;
-      cellToHighlight.style.color = "#FFF";
+      cellToHighlight.style.color = "#FFF000";
   }
 }

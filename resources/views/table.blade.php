@@ -80,7 +80,11 @@
           </td>
           @for ($i = 0; $i < 20; $i++)
           <td id="aa">
-            <span id="a"> 1-0 3-0 </span> <span id="b"> 2-0 </span>
+            @if($i <= 2)
+                <span id="a"> {{$ars[$i]->em_pred }} {{ $ars[$i]->rob_pred }} </span> <span id="b"> {{ $ars[$i]->score }} </span>
+            @else
+                <span id="a"> 2-1 0-2 </span> <span id="b"> 2-0 </span>
+            @endif
           </td>
          @endfor
        </tr>

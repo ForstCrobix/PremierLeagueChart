@@ -5,11 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Score;
 
 class WelcomeController extends Controller
 {
   public function index()
   {
+      $ars = $this->getData();
       $emelieScore = $this->getEmelieScore();
       $robScore = $this->getRobScore();
 
@@ -18,7 +20,7 @@ class WelcomeController extends Controller
         'rob' => $robScore
       );
 
-      return view('welcome')->with('scores', $scores);
+      return view('welcome')->with('scores', $scores)->with('ars', $ars);
   }
 
   public function getScores()
@@ -44,5 +46,11 @@ class WelcomeController extends Controller
   {
     // adding more here
     return 87;
+  }
+
+  private function getData()
+  {
+    $data = Score::All();
+    return $data;
   }
 }
