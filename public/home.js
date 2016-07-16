@@ -15,13 +15,13 @@ $(document).ready(function() {
           if(anchorLink == 'thirdPage') {
             menu.addClass('no-display'); // = "hidden";
             if (signIn != null) {
-                menu.addClass('no-display');
+                signIn.addClass('no-display');
             }
           }
           else {
               menu.removeClass('no-display');
               if (signIn != null) {
-                  menu.removeClass('no-display');
+                  signIn.removeClass('no-display');
               }
           }
         },
@@ -33,13 +33,13 @@ $(document).ready(function() {
           if(index == 2 && direction == 'down')  {
               menu.addClass('no-display');
               if (signIn != null) {
-                  menu.addClass('no-display');
+                  signIn.addClass('no-display');
               }
           }
           if(index == 3 && direction == 'up') {
               menu.removeClass('no-display');
               if (signIn != null) {
-                  menu.removeClass('no-display');
+                  signIn.removeClass('no-display');
               }
           }
         }
