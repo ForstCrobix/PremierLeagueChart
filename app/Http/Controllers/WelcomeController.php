@@ -12,15 +12,8 @@ class WelcomeController extends Controller
   public function index()
   {
       $ars = $this->getData();
-      $emelieScore = $this->getEmelieScore();
-      $robScore = $this->getRobScore();
 
-      $scores = array(
-        'em' => $emelieScore,
-        'rob' => $robScore
-      );
-
-      return view('welcome')->with('scores', $scores)->with('ars', $ars);
+      return view('welcome')->with('ars', $ars);
   }
 
   public function getScores()
