@@ -1,6 +1,6 @@
 $(document).ready(function() {
     $('#fullpage').fullpage({
-        sectionsColor: ['#ff9933', '#0099ff', '#00cc66', '#FF4B33'],
+        sectionsColor: ['#ff9933', '#0099ff', '#404040', '#FF4B33'],
         menu: '#menu',
         anchors: ['firstPage', 'secondPage', 'thirdPage', 'fourthPage'],
         navigation: true,
@@ -30,7 +30,8 @@ $(document).ready(function() {
         onLeave: function(index, nextIndex, direction) {
           var menu = $('#menu');
           var signIn = $('#sign-in-button');
-          if(index == 2 && direction == 'down')  {
+          if(index == 2 && direction == 'down' ||
+             index == 4 && direction == 'up')  {
               menu.addClass('no-display');
               if (signIn != null) {
                   signIn.addClass('no-display');
