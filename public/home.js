@@ -9,30 +9,38 @@ $(document).ready(function() {
 
         // removes the navbar buttons when the chart page is directly accessed
         afterLoad: function(anchorLink, index) {
-          var menu = document.querySelector('#menu');
-          var signIn = document.querySelector('#sign-in-button');
+          var menu = $('#menu');
+          var signIn = $('#sign-in-button');
 
           if(anchorLink == 'thirdPage') {
-            menu.style.visibility = "hidden";
-            signIn.style.visibility = "hidden";
+            menu.addClass('no-display'); // = "hidden";
+            if (signIn != null) {
+                menu.addClass('no-display');
+            }
           }
           else {
-            menu.style.visibility = "visible";
-            signIn.style.visibility = "visible";
+              menu.removeClass('no-display');
+              if (signIn != null) {
+                  menu.removeClass('no-display');
+              }
           }
         },
 
         // removes the navbar buttons when the chard is accessed from scrolling
         onLeave: function(index, nextIndex, direction) {
-          var menu = document.querySelector('#menu');
-          var signIn = document.querySelector('#sign-in-button');
+          var menu = $('#menu');
+          var signIn = $('#sign-in-button');
           if(index == 2 && direction == 'down')  {
-            menu.style.visibility = "hidden";
-            signIn.style.visibility = "hidden";
+              menu.addClass('no-display');
+              if (signIn != null) {
+                  menu.addClass('no-display');
+              }
           }
           if(index == 3 && direction == 'up') {
-            menu.style.visibility = "visible";
-            signIn.style.visibility = "visible";
+              menu.removeClass('no-display');
+              if (signIn != null) {
+                  menu.removeClass('no-display');
+              }
           }
         }
     });
