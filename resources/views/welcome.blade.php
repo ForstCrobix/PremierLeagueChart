@@ -1,16 +1,26 @@
 <!DOCTYPE html>
+<?php
+    $isLoggedIn = Auth::check();
+?>
+
 <html>
   <head>
     @include('references')
+    @if($isLoggedIn)
+        <script type="text/javascript" src="admin.js"></script>
+    @endif
   </head>
     <body>
         <ul id="menu">
             <li data-menuanchor="firstPage" class="active"><a href="#firstPage">Overview</a></li>
             <li data-menuanchor="secondPage"><a href="#secondPage">Predictions</a></li>
             <li data-menuanchor="thirdPage"><a href="#thirdPage">Chart</a></li>
+            @if($isLoggedIn)
+                <li data-menuanchor="fourthPage"><a href="#fourthPage">Fixtures</a></li>
+            @endif
         </ul>
-        @if(!Auth::check())
-        <button id="sign-in-button" type="button">Sign in</button>
+        @if(!$isLoggedIn)
+            <button id="sign-in-button" type="button">Sign in</button>
         @endif
 
         <div id="fullpage">
@@ -22,6 +32,20 @@
             <div class="section">
               @include('table')
             </div>
+            @if($isLoggedIn)
+                <div class="section">
+                    <!-- TODO - add functionality to change fixture list !-->
+                    <div class="col-md-10 col-md-offset-1 fixtures-list">
+                        <select class="team-select-dropdown">
+                            <option selected>Please pick a team to view fixtures...</option>
+                            @foreach ($teams as $team)
+                                <option>{{ $team->name }}</option>
+                            @endforeach
+                        </select>
+                        <div id="fixtures"></div>
+                    </div>
+                </div>
+            @endif
         </div>
 
         <!-- This is the dialog displayed when the 'Sign in' button is pressed. It is hidden by default !-->

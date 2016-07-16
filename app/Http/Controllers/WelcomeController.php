@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Team;
+use App\Fixture;
+use Auth;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -13,7 +16,12 @@ class WelcomeController extends Controller
   {
       $ars = $this->getData();
 
-      return view('welcome')->with('ars', $ars);
+      if(Auth::check()) {
+          $teams = Team::all();
+          return view('welcome')->with('ars', $ars)->with('teams', $teams);
+      }
+      else
+          return view('welcome')->with('ars', $ars);
   }
 
   public function getScores()
@@ -45,5 +53,13 @@ class WelcomeController extends Controller
   {
     $data = Score::All();
     return $data;
+  }
+
+  public function getTeamFixtures()
+  {
+      $teamID = $_POST['teamID'];
+      //TODO - Add away fixtures also
+      $fixtures = Fixture::all()->where('home_team_id', $teamID)->sortBy('date');
+      return $fixtures;
   }
 }

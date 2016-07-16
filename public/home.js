@@ -1,11 +1,11 @@
 $(document).ready(function() {
     $('#fullpage').fullpage({
-        sectionsColor: ['#ff9933', '#0099ff', '#404040'], //#00cc66
+        sectionsColor: ['#ff9933', '#0099ff', '#00cc66', '#FF4B33'],
         menu: '#menu',
-        anchors: ['firstPage', 'secondPage', 'thirdPage'],
+        anchors: ['firstPage', 'secondPage', 'thirdPage', 'fourthPage'],
         navigation: true,
         navigationPosition: 'right',
-        navigationTooltips: ['Dashboard', 'Upcoming', 'Table'],
+        navigationTooltips: ['Dashboard', 'Upcoming', 'Table', 'Fixtures'],
 
         // removes the navbar buttons when the chart page is directly accessed
         afterLoad: function(anchorLink, index) {
@@ -110,7 +110,7 @@ function updateScores(emelieScore, robScore) {
 var imgs = new Array()
 function preload() {
     for (i = 0; i < preload.arguments.length; i++) {
-        imgs[i] = new Image()
+        imgs[i] = new Image();
         imgs[i].src = preload.arguments[i]
     }
 }
@@ -164,8 +164,6 @@ function onClickHome(inputH, id) {
   setHighlighted();
 }
 
-
-
 function getCell(row, cell) {
     var tableElement = document.getElementById('whole');
     return tableElement.rows[row].cells[cell];
@@ -174,45 +172,54 @@ function getCell(row, cell) {
 var previousCell = null, previousRow = null, previousCol = null;
 var maxRow = 21, minRow = 2, maxCol = 20, minCol = 1;
 function setHighlighted() {
-  var cellToHighlight;
+    var cellToHighlight;
 
-  if(previousCell != null) {
-    previousCell.style.color = "#404040";
-    previousCell = null;
-  }
-  if(previousRow != null) {
-    for(var i = minRow; i <= maxRow; i++) {
-      var highlightedCell = getCell(i, previousRow+1);
-      highlightedCell.style.color ="#404040";
+    if (previousCell != null) {
+        previousCell.style.color = "#404040";
+        previousCell = null;
     }
-    previousRow = null;
-  }
-  if(previousCol != null) {
-    for(var i = minCol; i <= maxCol; i++) {
-      var highlightedCell = getCell(previousCol+2, i);
-      highlightedCell.style.color ="#404040";
+    if (previousRow != null) {
+        for (var i = minRow; i <= maxRow; i++) {
+            var highlightedCell = getCell(i, previousRow + 1);
+            highlightedCell.style.color = "#404040";
+        }
+        previousRow = null;
     }
-    previousCol = null;
-  }
+    if (previousCol != null) {
+        for (var i = minCol; i <= maxCol; i++) {
+            var highlightedCell = getCell(previousCol + 2, i);
+            highlightedCell.style.color = "#404040";
+        }
+        previousCol = null;
+    }
 
-  if (awayID != 100) {
-    for(var i = minRow; i <= maxRow; i++) {
-      var highlightedCell = getCell(i, awayID+1);
-      highlightedCell.style.color ="#FFF";
-      previousRow = awayID;
+    if (awayID != 100) {
+        for (var i = minRow; i <= maxRow; i++) {
+            var highlightedCell = getCell(i, awayID + 1);
+            highlightedCell.style.color = "#FFF";
+            previousRow = awayID;
+        }
     }
-  }
-  if (homeID != 100) {
-    for(var i = minCol; i <= maxCol; i++) {
-      var highlightedCell = getCell(homeID+2, i);
-      highlightedCell.style.color ="#FFF";
-      previousCol = homeID;
+    if (homeID != 100) {
+        for (var i = minCol; i <= maxCol; i++) {
+            var highlightedCell = getCell(homeID + 2, i);
+            highlightedCell.style.color = "#FFF";
+            previousCol = homeID;
+        }
     }
-  }
 
-  if (awayID != 100 && homeID != 100)  {
-      cellToHighlight = getCell(homeID+2, awayID+1);
-      previousCell = cellToHighlight;
-      cellToHighlight.style.color = "#FFF000";
-  }
+    if (awayID != 100 && homeID != 100) {
+        cellToHighlight = getCell(homeID + 2, awayID + 1);
+        previousCell = cellToHighlight;
+        cellToHighlight.style.color = "#FFF000";
+    }
+}
+
+
+function addLoading(element){
+    element.addClass('loading');
+}
+
+function removeLoading(element){
+    element.removeClass('loading');
 }
