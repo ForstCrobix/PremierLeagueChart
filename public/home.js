@@ -1,11 +1,11 @@
 $(document).ready(function() {
     $('#fullpage').fullpage({
-        sectionsColor: ['#ff9933', '#0099ff', '#00cc66'],
+        sectionsColor: ['#ff9933', '#0099ff', '#00cc66', '#FF4B33'],
         menu: '#menu',
-        anchors: ['firstPage', 'secondPage', 'thirdPage'],
+        anchors: ['firstPage', 'secondPage', 'thirdPage', 'fourthPage'],
         navigation: true,
         navigationPosition: 'right',
-        navigationTooltips: ['Dashboard', 'Upcoming', 'Table']
+        navigationTooltips: ['Dashboard', 'Upcoming', 'Table', 'Fixtures']
     });
 
     // Gets the scores to populate the progress bars
@@ -76,4 +76,12 @@ function preload() {
         imgs[i] = new Image()
         imgs[i].src = preload.arguments[i]
     }
+}
+
+function addLoading(element){
+    element.addClass('loading');
+}
+
+function removeLoading(element){
+    element.removeClass('loading');
 }

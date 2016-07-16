@@ -11,6 +11,15 @@
     display: none;
 }
 
+.loading {
+    background-image: url('images/ajax-loader.gif');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #FFFFFF !important;
+    pointer-events: none;
+    /*opacity: 0.7 !important;*/
+}
+
 span.help-block{
     color: #a94442;
 }
@@ -269,4 +278,17 @@ body, button {
 .hovereffect-e:hover p {
   opacity: 1;
   filter: alpha(opacity=100);
+}
+
+/* CSS for the fixtures page */
+.team-select-dropdown {
+    font-size: 20px;
+}
+
+.fixtures-list {
+    background-color: #404040;
+    border-radius: 50px;
+    border-style: inset;
+    border-color: azure;
+    height:80%;
 }
