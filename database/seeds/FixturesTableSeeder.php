@@ -21,9 +21,11 @@ class FixturesTableSeeder extends Seeder
                 if($i != $j) {
                     $away_team_id = $teams->get($j)->id;
                     DB::table('fixtures')->insert([
-                        'home_team_id' => $home_team_id,
-                        'away_team_id' => $away_team_id,
-                        'date' => date("Y-m-d H:i:s")
+                        'home_id' => $home_team_id,
+                        'away_id' => $away_team_id,
+                        'date' => date("Y-m-d H:i:s"),
+                        'created_at' => date("Y-m-d H:i:s"),
+                        'updated_at' => date("Y-m-d H:i:s")
                         // Skip score because it is nullable
                     ]);
                 }

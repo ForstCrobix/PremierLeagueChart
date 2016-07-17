@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFixturesTable extends Migration
+class CreatePredictionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,12 +12,13 @@ class CreateFixturesTable extends Migration
      */
     public function up()
     {
-        Schema::create('fixtures', function(Blueprint $table){
+        Schema::create('predictions', function(Blueprint $table){
             $table->increments('id');
-            $table->integer('home_id');
-            $table->integer('away_id');
-            $table->timestamp('date');
-            $table->string('score')->nullable();
+            $table->integer('fixture_id');
+            $table->integer('user_id');
+            $table->integer('home_score');
+            $table->integer('away_score');
+            $table->integer('points')->nullable();
             $table->timestamps();
         });
     }
@@ -29,6 +30,6 @@ class CreateFixturesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('fixtures');
+        Schema::drop('predictions');
     }
 }

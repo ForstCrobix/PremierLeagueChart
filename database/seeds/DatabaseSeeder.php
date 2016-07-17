@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -11,7 +12,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('scores')->insert([
+        /*DB::table('scores')->insert([
             'home' => 'arsenal',
             'away' => 'bournemouth',
             'em_pred' => '2-0',
@@ -31,13 +32,14 @@ class DatabaseSeeder extends Seeder
             'em_pred' => '2-0',
             'rob_pred' => '1-5',
             'score' => '2-0'
-        ]);
+        ]);*/
 
         Model::unguard();
 
         $this->call(UsersTableSeeder::class);
         $this->call(TeamsTableSeeder::class);
         $this->call(FixturesTableSeeder::class);
+        $this->call(PredictionsTableSeeder::class);
 
         Model::reguard();
     }
