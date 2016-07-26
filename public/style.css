@@ -197,26 +197,26 @@ span#a { display: inline; }
     background-size: 500% 400%;
 }
 
-.arsenal { background-position: 0 0;}
-.bournemouth { background-position: 25% 0%;}
-.burnley { background-position: 50% 0%;}
-.chelsea { background-position: 75% 0%;}
-.crystal-palace { background-position: 100% 0%;}
-.everton { background-position: 0% 33.33%; }
-.hull { background-position: 25% 33.33%; }
-.leicester { background-position: 50% 33.33%; }
-.liverpool { background-position: 75% 33.33%; }
-.manchester-city { background-position: 100% 33.33%; }
-.manchester-united { background-position: 0% 66.66%; }
-.middlesbrough { background-position: 25% 66.66%; }
-.southampton { background-position: 50% 66.66%; }
-.stoke { background-position: 75% 66.66%; }
-.sunderland { background-position: 100% 66.66%; }
-.swansea { background-position: 0% 100%; }
-.tottenham { background-position: 25% 100%; }
-.watford { background-position: 50% 100%; }
-.west-brom { background-position: 75% 100%; }
-.west-ham { background-position: 100% 100%; }
+.arsenal, .team-57 { background-position: 0 0;}
+.bournemouth, .team-1044 { background-position: 25% 0%;}
+.burnley, .team-328 { background-position: 50% 0%;}
+.chelsea, .team-61 { background-position: 75% 0%;}
+.crystal-palace, .team-354 { background-position: 100% 0%;}
+.everton, .team-62 { background-position: 0% 33.33%; }
+.hull, .team-332 { background-position: 25% 33.33%; }
+.leicester, .team-338 { background-position: 50% 33.33%; }
+.liverpool, .team-64 { background-position: 75% 33.33%; }
+.manchester-city, .team-65 { background-position: 100% 33.33%; }
+.manchester-united, .team-66 { background-position: 0% 66.66%; }
+.middlesbrough, .team-343 { background-position: 25% 66.66%; }
+.southampton, .team-340 { background-position: 50% 66.66%; }
+.stoke, .team-70 { background-position: 75% 66.66%; }
+.sunderland, .team-71 { background-position: 100% 66.66%; }
+.swansea, .team-72 { background-position: 0% 100%; }
+.tottenham, .team-73 { background-position: 25% 100%; }
+.watford, .team-346 { background-position: 50% 100%; }
+.west-brom, .team-74 { background-position: 75% 100%; }
+.west-ham, .team-563 { background-position: 100% 100%; }
 
 table#whole {
   font-size: 15px;
@@ -352,9 +352,55 @@ table#whole {
 }
 
 .fixtures-list {
+    position: relative;
+    overflow: hidden;
     background-color: #404040;
     border-radius: 50px;
     border-style: inset;
     border-color: azure;
     height:80%;
+}
+
+#fixtures {
+    overflow-y: scroll;
+    position: absolute;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0px;
+    right: 0px;
+}
+
+.fixture {
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.26);
+    margin-bottom: 15px;
+}
+
+.fixture:last-child {
+    margin-bottom: 150px;
+}
+
+.fixture-badge {
+    display: inline-block;
+    height: 80px;
+    width: 80px;
+    border-radius: 15px;
+    border: 1px solid;
+    vertical-align: middle;
+}
+
+.vs {
+    display: inline-block;
+    margin: 0;
+}
+
+.fixture-details-container * {
+    display: inline-block;
+    font-size: 15px;
+}
+
+.fixture-details-container label {
+    text-align: center;
 }

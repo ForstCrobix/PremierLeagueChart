@@ -3,6 +3,7 @@
 Route::get('/', 'WelcomeController@index');
 
 Route::post('/getScores', 'WelcomeController@getScores');
+Route::post('/updateFixture', 'WelcomeController@updateFixture');
 
 Route::auth();
 

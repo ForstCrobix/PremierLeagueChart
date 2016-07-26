@@ -2,7 +2,7 @@
 $(document).ready(function(){
     $('.team-select-dropdown').change(function(){
         var fixturesList = $('.fixtures-list');
-        var selectedTeamID = this.selectedIndex;
+        var selectedTeamID = this.value;
         if(selectedTeamID != 0)
         {
             GetTeamFixtures(selectedTeamID);
@@ -24,10 +24,62 @@ function GetTeamFixtures(teamID){
             for(key in response) {
                 if(response.hasOwnProperty(key)) {
                     $('#fixtures').append(
-                        '<p>' + response[key].home_team_id + ' vs ' + response[key].away_team_id + '</p>'
+                        '<div class="fixture row">' +
+                            '<div class="col-md-4">' +
+                                    '<div class="col-md-4">' +
+                                        '<div class="fixture-badge teams-h team-' + response[key].home_id + '">' + '</div>' +
+                                    '</div>' +
+                                    '<div class="col-md-4">' +
+                                        '<p style="display:inline-block"> vs </p>' +
+                                    '</div>' +
+                                    '<div class="col-md-4">' +
+                                        '<div class="fixture-badge teams-a team-' + response[key].away_id + '">' + '</div>' +
+                                    '</div>' +
+                            '</div>' +
+                            '<form class="fixture-form form-horizontal" role="form" method="POST" action="/updateFixture">' +
+                                '<input type="hidden" name="fixture_id" value="' + response[key].id + '">' +
+                                '<div class="col-md-8 fixture-details-container">' +
+                                        '<div class="row">' +
+                                            '<label class="col-md-4">Date</label>' +
+                                            '<input class="col-md-6" type="text" name="date" value="' + response[key].date.split(" ")[0] + '">' +
+                                        '</div>' +
+                                        '<div class="row">' +
+                                            '<label class="col-md-4">Time</label>' +
+                                            '<input class="col-md-6" type="text" name="time" value="' + response[key].date.split(" ")[1] + '">' +
+                                        '</div>' +
+                                        '<button type="submit" class="btn btn-success">Save</button>' +
+                                '</div>' +
+                            '</form>' +
+                        '</div>'
                     );
                 }
             }
+            // Submits the sign in form
+            $('.fixture-form').on('submit', function(e){
+                e.preventDefault();
+                var form = $(this);
+
+                $.ajax({
+                    type: 'post',
+                    url: './updateFixture',
+                    data: $(this).serialize(),
+                    success: function (response) {
+                        var button = form.find("button");
+                        if(response == 'OK') {
+                            button.html("All good!");
+                            button.prop('disabled', true);
+                        }
+                        else {
+                            button.removeClass('btn-success').addClass('btn-danger');
+                            button.html("I've got a bad feeling about this...");
+                            button.prop('disabled', true);
+                        }
+                    },
+                    error: function() {
+                        alert('Unable to save to database.');
+                    }
+                });
+            });
         },
         error: function(){
             alert("Unable to retrieve fixture list from server.");

@@ -6,6 +6,7 @@ $(document).ready(function() {
         navigation: true,
         navigationPosition: 'right',
         navigationTooltips: ['Dashboard', 'Upcoming', 'Table', 'Fixtures'],
+        normalScrollElements: '.fixtures-list',
 
         // removes the navbar buttons when the chart page is directly accessed
         afterLoad: function(anchorLink, index) {

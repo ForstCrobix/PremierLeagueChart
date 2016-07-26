@@ -39,10 +39,10 @@
                         <select class="team-select-dropdown">
                             <option selected>Please pick a team to view fixtures...</option>
                             @foreach ($teams as $team)
-                                <option>{{ $team->name }}</option>
+                                <option value={{$team->id}}>{{ $team->name }}</option>
                             @endforeach
                         </select>
-                        <div id="fixtures"></div>
+                        <div id="fixtures" class="container"></div>
                     </div>
                 </div>
             @endif

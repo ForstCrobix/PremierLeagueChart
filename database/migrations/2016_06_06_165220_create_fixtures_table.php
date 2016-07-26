@@ -13,11 +13,12 @@ class CreateFixturesTable extends Migration
     public function up()
     {
         Schema::create('fixtures', function(Blueprint $table){
-            $table->increments('id');
+            $table->integer('id');
+            $table->dateTime('date');
+            $table->integer('matchday');
             $table->integer('home_id');
             $table->integer('away_id');
-            $table->timestamp('date');
-            $table->string('score')->nullable();
+            $table->string('result')->nullable();
             $table->timestamps();
         });
     }
