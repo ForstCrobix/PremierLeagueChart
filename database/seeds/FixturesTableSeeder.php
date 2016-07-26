@@ -31,5 +31,22 @@ class FixturesTableSeeder extends Seeder
                 }
             }
         }
+
+        /* foreach ($teams as $home_no => $team_h) {
+            $home_team_id = $team_h->id;
+            foreach($teams as $away_no => $team_a) {
+                if($home_no != $away_no) {
+                    $away_team_id = $team_a->id;
+                    DB::table('fixtures')->insert([
+                        'home_id' => $home_team_id,
+                        'away_id' => $away_team_id,
+                        'date' => date("Y-m-d H:i:s"),
+                        'created_at' => date("Y-m-d H:i:s"),
+                        'updated_at' => date("Y-m-d H:i:s")
+                        // Skip score because it is nullable
+                    ]);
+                }
+            }
+        } */
     }
 }

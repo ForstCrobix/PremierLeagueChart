@@ -78,9 +78,10 @@
           <td class="col-1" id="arsenal1" onclick="onClickHome(arsenal1, 0)">
             <div class="teams-h arsenal"></div>
           </td>
-          @for ($i = 0; $i < 20; $i++)
+           <td id="aa"></td>
+          @for ($i = 0; $i < 19; $i++)
           <td id="aa">
-            2-0
+            {{$fixtures[$i]}}
           </td>
          @endfor
        </tr>
@@ -88,10 +89,10 @@
          <td class="col-1" id="bournemouth1" onclick="onClickHome(bournemouth1, 1)">
            <div class="teams-h bournemouth"></div>
          </td>
-         @for ($i = 0; $i < 20; $i++)
-         <td id="aa">
-           <span id="a"> 1-0 3-0 </span> <span id="b"> 2-0 </span>
-         </td>
+           @for ($i = 19; $i < 38; $i++)
+               <td id="aa">
+                   {{$fixtures[$i]}}
+               </td>
         @endfor
        </tr>
        <tr>

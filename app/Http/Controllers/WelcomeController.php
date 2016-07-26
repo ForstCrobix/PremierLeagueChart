@@ -12,16 +12,17 @@ use App\Score;
 
 class WelcomeController extends Controller
 {
+
   public function index()
   {
-      $ars = $this->getData();
+      $teams = Team::all();
+      $fixtures = $this->getFixtureScores();
 
       if(Auth::check()) {
-          $teams = Team::all();
-          return view('welcome')->with('ars', $ars)->with('teams', $teams);
+          return view('welcome')->with('fixtures', $fixtures)->with('teams', $teams);
       }
       else
-          return view('welcome')->with('ars', $ars);
+          return view('welcome')->with('fixtures', $fixtures);
   }
 
   public function getScores()
@@ -49,10 +50,24 @@ class WelcomeController extends Controller
     return 87;
   }
 
-  private function getData()
+  private function getFixtureScores()
   {
-    $data = Score::All();
-    return $data;
+      $teams = Team::orderBy('name')->get(); //works
+      $fixtures = Fixture::all()->toArray();
+      $allFixtures = Array();
+
+      foreach ($teams as $team) {
+          //foreach ($fixtures as $fixture) {
+            $homeFixtures = $this->searchArray($fixtures, 'home_id', $team->id);
+            foreach($teams as $awayTeam) {
+                if ($awayTeam->id != $team->id) {
+                    $fixture = $this->searchArray($homeFixtures, 'away_id', $awayTeam->id);
+                    array_push($allFixtures, $fixture[0]['score']);
+                }
+            }
+      }
+      
+    return $allFixtures;
   }
 
   public function getTeamFixtures()
@@ -62,4 +77,21 @@ class WelcomeController extends Controller
       $fixtures = Fixture::all()->where('home_team_id', $teamID)->sortBy('date');
       return $fixtures;
   }
+
+    private function searchArray($array, $key, $value)
+    {
+        $results = array();
+
+        if (is_array($array)) {
+            if (isset($array[$key]) && $array[$key] == $value) {
+                $results[] = $array;
+            }
+
+            foreach ($array as $subarray) {
+                $results = array_merge($results, $this->searchArray($subarray, $key, $value));
+            }
+        }
+
+        return $results;
+    }
 }

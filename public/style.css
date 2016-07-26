@@ -197,8 +197,8 @@ span#a { display: inline; }
     background-size: 500% 400%;
 }
 
-.arsenal { background-position: 0 0;}
-.bournemouth { background-position: 25% 0%;}
+.arsenal { background-position: 25% 0;}
+.bournemouth { background-position: 0% 0%;}
 .burnley { background-position: 50% 0%;}
 .chelsea { background-position: 75% 0%;}
 .crystal-palace { background-position: 100% 0%;}
